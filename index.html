@@ -9,6 +9,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,400;1,700&display=swap" rel="stylesheet">
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
+html { overflow-x: hidden; }
+body { overflow-x: hidden; max-width: 100%; }
+img { max-width: 100%; height: auto; }
 
 :root {
   --teal: #3d6b8e;
@@ -802,12 +805,21 @@ footer p { font-size: 13px; color: rgba(255,255,255,0.7); }
 
 /* ── RESPONSIVE ── */
 @media (max-width: 768px) {
-  /* Layout fixes */
+  /* Layout fixes - Flex zu Column */
   .hero-inner, .about-grid, .product-grid, .vision-grid, .guarantee-grid { flex-direction: column; }
   .hero-right, .about-img, .product-img, .vision-img { width: 100%; padding-top: 0; }
-  .three-cards, .testi-grid, .testi-big-grid, .pros-cons-grid { grid-template-columns: 1fr; }
-  .wusstest-grid { flex-direction: column; }
-  .cred-grid { flex-direction: column; }
+
+  /* ALLE Grids: 1 Spalte auf Mobile */
+  .three-cards,
+  .testi-grid,
+  .testi-big-grid,
+  .pros-cons-grid,
+  .wusstest-grid,
+  .cred-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+
   .meta-bar { padding: 8px 20px 16px; font-size: 12px; }
   .logobar { padding: 14px 20px; }
 
@@ -819,38 +831,52 @@ footer p { font-size: 13px; color: rgba(255,255,255,0.7); }
   .hero-right img { border-radius: 12px; max-height: 280px; object-fit: cover; object-position: center 70%; }
 
   /* Sections */
-  .section { padding: 40px 16px; }
+  .section { padding: 50px 16px; }
   .teal-banner { padding: 14px 16px; font-size: 16px; }
+
+  /* Container */
+  .container, .container.reading-width { max-width: 100%; padding: 0; }
+  .reading-width { max-width: 100%; }
 
   /* About circle image */
   .about-img { display: flex; justify-content: center; }
   .about-img img { width: 220px !important; height: 220px !important; }
 
-  /* Cards */
+  /* Cards - feste Breite entfernen */
   .card-item { padding: 24px 18px; }
-  .cred-card { min-width: unset; }
-  .bonus-img-row { flex-direction: column; }
+  .cred-card { min-width: unset; padding: 28px 20px; }
+  .wusstest-item { padding: 28px 20px; }
+  .testi-card, .testi-big { padding: 24px 20px; }
+
+  /* Bonus */
+  .bonus-item { padding: 20px 16px; }
+  .bonus-img-row { flex-direction: column; gap: 16px; }
   .bonus-img-placeholder { width: 100%; height: 140px; }
 
   /* Price box */
-  .price-box { padding: 24px 18px; }
-  .cta-button { font-size: 18px; padding: 16px 20px; }
+  .price-box { padding: 28px 20px; border-radius: 16px; }
+  .cta-button { font-size: 17px; padding: 18px 20px; }
 
   /* Trust grid */
   .trust-grid { flex-direction: column; align-items: center; gap: 24px; }
   .trust-item { max-width: 240px; }
 
   /* Guarantee */
-  .guarantee-grid { text-align: center; }
-  .guarantee-img { margin: 0 auto; }
+  .guarantee-grid {
+    text-align: center;
+    padding: 28px 20px;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .guarantee-img { margin: 0 auto; font-size: 72px; }
 
   /* Testimonials */
-  .testi-big { padding: 20px; }
   .testi-top { gap: 10px; }
 
   /* FAQ */
-  .faq-q { font-size: 15px; padding: 14px 14px; }
-  .faq-a { padding: 16px 18px; font-size: 15px; }
+  .faq-list { max-width: 100%; }
+  .faq-q { font-size: 15px; padding: 16px 18px; }
+  .faq-a { padding: 18px 18px 20px; font-size: 15px; }
 
   /* Media logos */
   .media-logos { gap: 12px; }
@@ -859,17 +885,33 @@ footer p { font-size: 13px; color: rgba(255,255,255,0.7); }
   .vision-list li { font-size: 15px; }
 
   /* Pros cons */
-  .pros-box, .cons-box { padding: 20px 16px; }
+  .pros-box, .cons-box { padding: 24px 20px; }
+
+  /* Pull quote mobile */
+  .pull-quote {
+    padding: 18px 20px;
+    font-size: 17px;
+    margin: 24px 0;
+  }
 
   /* Footer */
   .footer-nav { gap: 12px; }
   footer p { font-size: 12px; }
+
+  /* H2 Spacings */
+  h2 { margin-bottom: 20px; }
+
+  /* Product image mobile */
+  .product-img { max-width: 320px; margin: 0 auto; }
 }
 
 @media (max-width: 400px) {
   .hero-left h1 { font-size: 22px; }
   .logo-text { font-size: 18px; }
   .price-new, .value-new { font-size: 1.6rem; }
+  .section { padding: 40px 14px; }
+  .cta-button { font-size: 16px; padding: 16px 18px; }
+  .pull-quote { font-size: 16px; padding: 16px 18px; }
 }
 </style>
 </head>
