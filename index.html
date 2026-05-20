@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
+<!-- ─── COOKIEBOT (Consent Management) ─── -->
+<!-- Muss als ERSTES Script geladen werden, damit das automatische Blocking funktioniert -->
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="362002c3-5dd2-41b6-962e-1fc3a2a2d633" data-blockingmode="auto" type="text/javascript"></script>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nervensystem regulieren in 14 Tagen – endlich wieder runterkommen | Peter Steinlechner</title>
@@ -1682,6 +1686,7 @@ footer p { font-size: 13px; color: rgba(255,255,255,0.7); }
     <a href="/datenschutz.html">Datenschutz</a>
     <a href="/impressum.html">Impressum</a>
     <a href="/widerruf.html">Widerruf</a>
+    <a href="#" onclick="Cookiebot.renew(); return false;">Cookie-Einstellungen</a>
   </div>
   <p>Copyright Soulflow Breathwork · Peter Steinlechner · 2026. Alle Rechte vorbehalten.</p>
 </footer>
@@ -1716,5 +1721,6 @@ document.querySelectorAll('.faq-q').forEach(q => {
     el.textContent = dd + '.' + mm + '.' + yyyy;
   })();
 </script>
+
 </body>
 </html>
