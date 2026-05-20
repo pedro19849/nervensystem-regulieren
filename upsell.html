@@ -300,6 +300,56 @@ body {
 }
 .exclusivity-section strong { color: var(--charcoal); }
 
+/* ─── COUNTER BOX (Gründungs-Plätze) ─── */
+.counter-box {
+  background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+  color: #fff;
+  border-radius: 18px;
+  padding: 28px 24px;
+  margin: 28px auto;
+  max-width: 420px;
+  text-align: center;
+  box-shadow: 0 12px 32px rgba(61, 107, 142, 0.25);
+}
+.counter-label {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  opacity: 0.9;
+  margin-bottom: 6px;
+}
+.counter-number {
+  font-size: clamp(72px, 14vw, 110px);
+  font-weight: 900;
+  line-height: 1;
+  color: #fece10;
+  text-shadow: 0 4px 16px rgba(0,0,0,0.25);
+  letter-spacing: -0.03em;
+  margin: 6px 0;
+  font-variant-numeric: tabular-nums;
+  display: inline-block;
+  animation: pulse 2.5s ease-in-out infinite;
+}
+.counter-number.tick {
+  animation: tick-flash 0.7s ease-out;
+}
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.04); }
+}
+@keyframes tick-flash {
+  0% { transform: scale(1); color: #fece10; }
+  30% { transform: scale(1.3); color: #ff6b6b; text-shadow: 0 4px 24px rgba(255,107,107,0.6); }
+  100% { transform: scale(1); color: #fece10; }
+}
+.counter-sub {
+  font-size: 14px;
+  font-weight: 600;
+  opacity: 0.95;
+  margin-top: 4px;
+}
+
 /* ─── PRICE BOX ─── */
 .price-box {
   background: #fff;
@@ -921,10 +971,17 @@ footer a:hover { color: #fff; }
 
     <!-- EXKLUSIVITÄT -->
   <div class="exclusivity-section">
-    <h2>Die Community ist bewusst klein gehalten</h2>
-    <p>Aktuell sind <strong>165 Mitglieder</strong> in der Atemkraft Community.</p>
-    <p>Ab <strong>200 Mitgliedern</strong> erhöht sich der Preis.</p>
-    <p>Es gibt also noch <strong>35 Plätze</strong> für den <strong>besten Preis</strong>.</p>
+    <h2>Du hast jetzt die Chance, Gründungsmitglied zu werden</h2>
+    <p>Die Atemkraft Community ist gerade frisch gestartet – und du kannst von Anfang an dabei sein.</p>
+    <p>Als Gründungsmitglied sicherst du dir den <strong>besten Preis dauerhaft</strong>.</p>
+
+    <div class="counter-box">
+      <div class="counter-label">Noch verfügbare Plätze zum Gründungspreis:</div>
+      <div class="counter-number" id="founding-counter">50</div>
+      <div class="counter-sub">von 150 – danach steigt der Preis dauerhaft</div>
+    </div>
+
+    <p><strong>Du bleibst bei deinem Einstiegspreis – für immer.</strong></p>
   </div>
 
   <!-- PREISBOX + CTA #1 -->
@@ -975,7 +1032,7 @@ footer a:hover { color: #fff; }
       JA, ICH TESTE DIE COMMUNITY 14 TAGE KOSTENLOS<br>
       <span style="font-size:14px; font-weight:500; opacity:0.9;">0€-Testphase starten und Nervensystem dauerhaft stabilisieren</span>
     </a>
-    <p class="cta-sub-text">Freie Plätze für den besten Preis: 35 von 200.</p>
+    <p class="cta-sub-text">Nur für Gründungsmitglieder: dein Einstiegspreis bleibt – für immer.</p>
   </div>
 
   <!-- PS-SEKTION -->
@@ -993,7 +1050,7 @@ footer a:hover { color: #fff; }
 
     <p style="margin-top: 30px;"><strong>PPS:</strong> Wenn du später beitreten willst, kostet die Community 99,95€/Monat. Dieses Neukunden-Angebot bekommst du nur jetzt auf dieser Seite.</p>
     <p><strong>PPPS:</strong> Die 14-Tage-Testphase ist wirklich kostenlos. Es gibt keine versteckten Kosten. Du entscheidest nach zwei Wochen, ob du weitermachst.</p>
-    <p><strong>PPPPS:</strong> Von den aktuellen Mitgliedern bleiben über 65% nach der Testphase dabei. <strong>Warum?</strong> Weil die Community wirklich funktioniert.</p>
+    <p><strong>PPPPS:</strong> Je früher du dabei bist, desto enger ist der Kontakt zu mir. Bei einer wachsenden Community wirst du später nicht mehr die gleiche persönliche Begleitung bekommen wie als Gründungsmitglied.</p>
   </div>
 
   <!-- DOWNSELL LINK -->
@@ -1014,5 +1071,31 @@ footer a:hover { color: #fff; }
   </p>
 </footer>
 
+<script>
+(function() {
+  // Gründungsmitglied-Countdown
+  // Startwert: 50, alle 5 Sekunden -1, Minimum: 3
+  // Pro Seitenaufruf: startet frisch bei 50 und zählt sichtbar runter
+  
+  var STARTWERT = 50;
+  var MINIMUM = 3;
+  var INTERVALL_MS = 5000; // alle 5 Sekunden
+  
+  var counter = document.getElementById('founding-counter');
+  if (!counter) return;
+  
+  var aktuell = STARTWERT;
+  counter.textContent = aktuell;
+  
+  setInterval(function() {
+    if (aktuell <= MINIMUM) return;
+    aktuell -= 1;
+    counter.textContent = aktuell;
+    counter.classList.remove('tick');
+    void counter.offsetWidth; // Reflow für Animation-Restart
+    counter.classList.add('tick');
+  }, INTERVALL_MS);
+})();
+</script>
 </body>
 </html>
