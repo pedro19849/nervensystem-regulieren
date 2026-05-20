@@ -277,6 +277,29 @@ body {
   line-height: 1.55;
 }
 
+/* ─── EXKLUSIVITÄT ─── */
+.exclusivity-section {
+  text-align: center;
+  margin: 40px auto;
+  max-width: 620px;
+  padding: 24px 20px;
+}
+.exclusivity-section h2 {
+  font-size: clamp(22px, 3vw, 28px);
+  font-weight: 800;
+  color: var(--charcoal);
+  margin-bottom: 18px;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+.exclusivity-section p {
+  font-size: 17px;
+  line-height: 1.7;
+  margin: 6px 0;
+  color: var(--text);
+}
+.exclusivity-section strong { color: var(--charcoal); }
+
 /* ─── PRICE BOX ─── */
 .price-box {
   background: #fff;
@@ -332,8 +355,8 @@ body {
 /* ─── CTA BUTTON ─── */
 .cta-button {
   display: block;
-  background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
-  color: #fff;
+  background: linear-gradient(135deg, #fece10 0%, #f5b400 100%);
+  color: #1f2933;
   text-decoration: none;
   text-align: center;
   font-size: clamp(18px, 2.5vw, 22px);
@@ -347,12 +370,12 @@ body {
   font-family: 'Urbanist', sans-serif;
   letter-spacing: 0.02em;
   line-height: 1.3;
-  box-shadow: 0 8px 24px rgba(61, 107, 142, 0.3);
+  box-shadow: 0 8px 24px rgba(245, 180, 0, 0.35);
 }
 .cta-button:hover {
-  background: linear-gradient(135deg, var(--teal-dark) 0%, #1e3a52 100%);
+  background: linear-gradient(135deg, #f5b400 0%, #d99e00 100%);
   transform: translateY(-3px);
-  box-shadow: 0 12px 32px rgba(61, 107, 142, 0.4);
+  box-shadow: 0 12px 32px rgba(245, 180, 0, 0.4);
 }
 .cta-sub-text {
   font-size: 14px;
@@ -361,11 +384,273 @@ body {
   margin-top: 6px;
 }
 
+/* ─── INFO-WARNUNG (Wichtig-Box) ─── */
+.warning-box {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  background: #fff8e6;
+  border: 1px solid #f0d680;
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin: 28px auto 0;
+  max-width: 600px;
+  font-size: 15px;
+  line-height: 1.55;
+  color: #5a4a1f;
+}
+.warning-box .warn-icon {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  background: #f0b840;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 16px;
+}
+
+/* ─── TESTIMONIAL-BANNER ─── */
+.section-banner {
+  background: var(--teal);
+  color: #fff;
+  text-align: center;
+  padding: 36px 24px;
+  margin: 50px -24px 0;
+  border-radius: 0;
+}
+.section-banner h2 {
+  color: #fff;
+  font-size: clamp(24px, 3.5vw, 32px);
+  font-weight: 800;
+  line-height: 1.25;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+/* ─── TESTIMONIAL CARDS ─── */
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin: 36px 0;
+}
+.testimonial-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 24px 22px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+}
+.testimonial-stars {
+  color: #f5b400;
+  font-size: 16px;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+.testimonial-role {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--teal);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.testimonial-quote {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--text);
+  font-style: italic;
+}
+
+/* ─── OPTIONS-VERGLEICH ─── */
+.options-section {
+  margin: 50px 0 0;
+}
+.options-heading {
+  font-size: clamp(24px, 3.5vw, 32px);
+  font-weight: 800;
+  text-align: center;
+  color: var(--charcoal);
+  margin-bottom: 28px;
+  letter-spacing: -0.01em;
+}
+.option-box {
+  border-radius: 14px;
+  padding: 30px;
+  margin-bottom: 24px;
+  border: 3px dashed transparent;
+  color: #fff;
+}
+.option-box.option-bad {
+  background: #c0573e;
+  border-color: rgba(0,0,0,0.15);
+}
+.option-box.option-good {
+  background: #6a8f6c;
+  border-color: rgba(0,0,0,0.15);
+}
+.option-box h3 {
+  color: #fff;
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 16px;
+  line-height: 1.3;
+}
+.option-list {
+  list-style: none;
+  margin: 0 0 18px;
+  padding: 0;
+}
+.option-list li {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 8px 0;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #fff;
+}
+.option-icon {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 14px;
+  margin-top: 2px;
+}
+.option-box.option-bad .option-icon { color: #fff; }
+.option-box.option-good .option-icon { color: #fff; }
+.option-rate {
+  font-size: 14px;
+  color: rgba(255,255,255,0.85);
+  margin-top: 8px;
+  font-weight: 700;
+}
+
+/* ─── GARANTIE-BLOCK ─── */
+.guarantee-section {
+  background: var(--teal);
+  color: #fff;
+  padding: 40px 30px;
+  border-radius: 18px;
+  margin: 50px -24px 0;
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 30px;
+  align-items: center;
+}
+.guarantee-badge {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #f5d76e 0%, #d4a52e 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #4a3500;
+  text-align: center;
+  font-weight: 800;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  border: 4px solid #fff;
+  margin: 0 auto;
+}
+.guarantee-badge .days-num {
+  font-size: 38px;
+  line-height: 1;
+}
+.guarantee-badge .days-text {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 3px;
+}
+.guarantee-badge .test-text {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 6px;
+  opacity: 0.85;
+}
+.guarantee-content h3 {
+  color: #fff;
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+.guarantee-content p {
+  color: rgba(255,255,255,0.95);
+  font-size: 15px;
+  line-height: 1.55;
+  margin-bottom: 10px;
+}
+
+/* ─── REPEAT-CTA / Checkpoint-Box ─── */
+.checkpoint-section {
+  margin: 50px 0 0;
+  text-align: center;
+}
+.checkpoint-section h2 {
+  font-size: clamp(22px, 3vw, 28px);
+  font-weight: 800;
+  color: var(--charcoal);
+  margin-bottom: 28px;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+.checkpoint-list {
+  list-style: none;
+  text-align: center;
+  margin: 0 auto 28px;
+  padding: 0;
+  font-size: 16px;
+  line-height: 1.9;
+  color: var(--text);
+}
+.checkpoint-list li {
+  margin: 0;
+}
+.notice-box {
+  background: #fff8e6;
+  border: 1px solid #f0d680;
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin: 28px auto;
+  max-width: 520px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #5a4a1f;
+  text-align: center;
+}
+.notice-box strong { color: #4a3500; }
+
+/* ─── PS-SEKTION ─── */
+.ps-section {
+  margin: 50px 0 0;
+  padding: 32px 0 0;
+  border-top: 1px solid var(--border);
+}
+.ps-section p {
+  font-size: 16px;
+  line-height: 1.65;
+  margin-bottom: 18px;
+  color: var(--text);
+}
+.ps-section p strong { color: var(--charcoal); font-weight: 800; }
+
 /* ─── DOWNSELL LINK ─── */
 .downsell-link {
   text-align: center;
-  margin-top: 36px;
-  padding-top: 28px;
+  margin-top: 40px;
+  padding-top: 32px;
   border-top: 1px solid var(--border);
 }
 .downsell-link a {
@@ -373,6 +658,9 @@ body {
   font-size: 14px;
   text-decoration: underline;
   font-weight: 500;
+  line-height: 1.6;
+  max-width: 620px;
+  display: inline-block;
 }
 .downsell-link a:hover { color: var(--text); }
 
@@ -399,6 +687,11 @@ footer a:hover { color: #fff; }
   .price-box { padding: 32px 22px; }
   .feature-list li { padding: 14px 0; font-size: 15px; }
   .feature-icon { width: 32px; height: 32px; font-size: 16px; }
+  .testimonial-grid { grid-template-columns: 1fr !important; gap: 16px; }
+  .section-banner { margin: 40px -18px 0; padding: 28px 18px; }
+  .option-box { padding: 24px 22px; }
+  .guarantee-section { grid-template-columns: 1fr !important; text-align: center; margin: 40px -18px 0; padding: 32px 22px; gap: 20px; }
+  .guarantee-content h3, .guarantee-content p { text-align: center; }
 }
 </style>
 </head>
@@ -448,7 +741,50 @@ footer a:hover { color: #fff; }
     <p>Ein geschützter Raum, in dem du <strong>nicht alleine</strong> an deinem Nervensystem arbeitest – sondern gemeinsam mit anderen, die genau wie du dranbleiben wollen. Mit Live-Calls, neuen Atemreisen, einer 30-Tage Challenge und mir als direktem Ansprechpartner.</p>
   </div>
 
-  <!-- COMMUNITY BOX -->
+  <!-- ECHTE FRAGEN AUS DER COMMUNITY -->
+  <div class="questions-section">
+    <h2 class="questions-heading">In dieser Community stellen echte Menschen echte Fragen wie:</h2>
+    <ul class="question-list">
+      <li>
+        <span class="q-icon">?</span>
+        <span class="q-text"><strong>Markus, 38:</strong> <em>"Ich habe nachts Herzrasen. Welche Atemübung hilft am schnellsten?"</em></span>
+      </li>
+      <li>
+        <span class="q-icon">?</span>
+        <span class="q-text"><strong>Anna, 45:</strong> <em>"Wie oft sollte ich die Wim-Hof-Atmung machen, ohne mein System zu überfordern?"</em></span>
+      </li>
+      <li>
+        <span class="q-icon">?</span>
+        <span class="q-text"><strong>Sandra, 42:</strong> <em>"Ich werde seit 5 Tagen zwischen 3-4 Uhr wach. Ist das Cortisol?"</em></span>
+      </li>
+      <li>
+        <span class="q-icon">?</span>
+        <span class="q-text"><strong>Tom, 51:</strong> <em>"Welche binauralen Beats helfen am besten beim Einschlafen?"</em></span>
+      </li>
+      <li>
+        <span class="q-icon">?</span>
+        <span class="q-text"><strong>Lisa, 39:</strong> <em>"Ich habe seit dem Reset Verdauungsprobleme. Kann das vom Vagusnerv-Training kommen?"</em></span>
+      </li>
+      <li>
+        <span class="q-icon">?</span>
+        <span class="q-text"><strong>Michael, 47:</strong> <em>"Wann sollte ich Box-Breathing machen und wann die 4-7-8-Atmung?"</em></span>
+      </li>
+      <li>
+        <span class="q-icon">?</span>
+        <span class="q-text"><strong>Julia, 35:</strong> <em>"Mein Partner versteht nicht, warum ich diese Atemübungen mache. Wie erkläre ich es?"</em></span>
+      </li>
+      <li>
+        <span class="q-icon">?</span>
+        <span class="q-text"><strong>Stefan, 56:</strong> <em>"Ich bin Schichtarbeiter. Wie passe ich die Routine an, wenn mein Tag-Nacht-Rhythmus wechselt?"</em></span>
+      </li>
+      <li>
+        <span class="q-icon">?</span>
+        <span class="q-text"><strong>Carola, 44:</strong> <em>"Welche Übungen helfen vor einer wichtigen Präsentation, wenn die Nerven flattern?"</em></span>
+      </li>
+    </ul>
+    <p class="questions-footer">Du bekommst von mir eine fundierte Antwort innerhalb kürzester Zeit – kein widersprüchliches Halbwissen aus dem Internet, sondern Erfahrung aus über 200 Begleitungen.</p>
+  </div>
+<!-- COMMUNITY BOX -->
   <div class="community-box">
     <h3>Das bekommst du in der Atemkraft Community:</h3>
     <ul class="feature-list">
@@ -504,49 +840,94 @@ footer a:hover { color: #fff; }
     </ul>
   </div>
 
-  <!-- ECHTE FRAGEN AUS DER COMMUNITY -->
-  <div class="questions-section">
-    <h2 class="questions-heading">In dieser Community stellen echte Menschen echte Fragen wie:</h2>
-    <ul class="question-list">
-      <li>
-        <span class="q-icon">?</span>
-        <span class="q-text"><strong>Markus, 38:</strong> <em>"Ich habe nachts Herzrasen. Welche Atemübung hilft am schnellsten?"</em></span>
-      </li>
-      <li>
-        <span class="q-icon">?</span>
-        <span class="q-text"><strong>Anna, 45:</strong> <em>"Wie oft sollte ich die Wim-Hof-Atmung machen, ohne mein System zu überfordern?"</em></span>
-      </li>
-      <li>
-        <span class="q-icon">?</span>
-        <span class="q-text"><strong>Sandra, 42:</strong> <em>"Ich werde seit 5 Tagen zwischen 3-4 Uhr wach. Ist das Cortisol?"</em></span>
-      </li>
-      <li>
-        <span class="q-icon">?</span>
-        <span class="q-text"><strong>Tom, 51:</strong> <em>"Welche binauralen Beats helfen am besten beim Einschlafen?"</em></span>
-      </li>
-      <li>
-        <span class="q-icon">?</span>
-        <span class="q-text"><strong>Lisa, 39:</strong> <em>"Ich habe seit dem Reset Verdauungsprobleme. Kann das vom Vagusnerv-Training kommen?"</em></span>
-      </li>
-      <li>
-        <span class="q-icon">?</span>
-        <span class="q-text"><strong>Michael, 47:</strong> <em>"Wann sollte ich Box-Breathing machen und wann die 4-7-8-Atmung?"</em></span>
-      </li>
-      <li>
-        <span class="q-icon">?</span>
-        <span class="q-text"><strong>Julia, 35:</strong> <em>"Mein Partner versteht nicht, warum ich diese Atemübungen mache. Wie erkläre ich es?"</em></span>
-      </li>
-      <li>
-        <span class="q-icon">?</span>
-        <span class="q-text"><strong>Stefan, 56:</strong> <em>"Ich bin Schichtarbeiter. Wie passe ich die Routine an, wenn mein Tag-Nacht-Rhythmus wechselt?"</em></span>
-      </li>
-      <li>
-        <span class="q-icon">?</span>
-        <span class="q-text"><strong>Carola, 44:</strong> <em>"Welche Übungen helfen vor einer wichtigen Präsentation, wenn die Nerven flattern?"</em></span>
-      </li>
-    </ul>
-    <p class="questions-footer">Du bekommst von mir eine fundierte Antwort innerhalb kürzester Zeit – kein widersprüchliches Halbwissen aus dem Internet, sondern Erfahrung aus über 200 Begleitungen.</p>
+  <!-- TESTIMONIAL-BANNER -->
+  <div class="section-banner">
+    <h2>Was andere über die Atemkraft Community sagen:</h2>
   </div>
+
+  <div class="testimonial-grid">
+    <div class="testimonial-card">
+      <div class="testimonial-stars">★★★★★</div>
+      <div class="testimonial-role">Selbstständige, 41</div>
+      <p class="testimonial-quote">"Ohne die Community hätte ich nach Woche 2 wieder aufgehört. Peters Antwort auf meine Schlaf-Frage hat alles verändert."</p>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-stars">★★★★★</div>
+      <div class="testimonial-role">Vater von 2 Kindern</div>
+      <p class="testimonial-quote">"Das 14-Tage-Programm war super. Aber die Community ist der Grund, warum ich jetzt seit 3 Monaten dranbleibe."</p>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-stars">★★★★★</div>
+      <div class="testimonial-role">Lehrerin, 52</div>
+      <p class="testimonial-quote">"Ich dachte, ich brauche keine Community. Aber dann kam Tag 9 und ich wusste nicht weiter. Die Antwort kam innerhalb von einer Stunde."</p>
+    </div>
+  </div>
+
+  <!-- WARUM DIE COMMUNITY FUNKTIONIERT -->
+  <div class="section-banner">
+    <h2>Warum die Community funktioniert:</h2>
+  </div>
+
+  <div class="story" style="margin-top: 36px;">
+    <p>Das 14-Tage Nervensystem Reset gibt dir die Struktur. Die Atemkraft Community gibt dir die maßgeschneiderten Anpassungen für deinen Alltag.</p>
+    <p>Vielleicht fragst du dich:</p>
+  </div>
+
+  <ul class="question-list" style="margin-top: 18px;">
+    <li>
+      <span class="q-icon">?</span>
+      <span class="q-text"><em>"Was, wenn ich morgens keine Zeit für 10 Minuten Atemübung habe?"</em></span>
+    </li>
+    <li>
+      <span class="q-icon">?</span>
+      <span class="q-text"><em>"Welche Atemtechnik passt zu mir, wenn ich Asthma habe?"</em></span>
+    </li>
+    <li>
+      <span class="q-icon">?</span>
+      <span class="q-text"><em>"Ich werde schwindelig bei tiefem Atmen – was mache ich falsch?"</em></span>
+    </li>
+    <li>
+      <span class="q-icon">?</span>
+      <span class="q-text"><em>"Ich bin Schichtarbeiter. Wann ist für mich der beste Zeitpunkt zum Atmen?"</em></span>
+    </li>
+  </ul>
+
+  <p style="margin: 24px 0 0;">All das wirst du in der Community erfahren – direkt von mir und anderen Mitgliedern, die genau das durchgemacht haben.</p>
+
+  <!-- 2 OPTIONEN VERGLEICH -->
+  <div class="options-section">
+    <h2 class="options-heading">Deine 2 Optionen:</h2>
+
+    <div class="option-box option-bad">
+      <h3>Option 1: Du machst das Programm alleine</h3>
+      <ul class="option-list">
+        <li><span class="option-icon">✕</span> Du bist unsicher, ob du alles richtig machst.</li>
+        <li><span class="option-icon">✕</span> Du erlebst Rückfälle – Schlaflosigkeit, Anspannung, alte Muster kehren zurück.</li>
+        <li><span class="option-icon">✕</span> Du gibst auf, weil du keine Verbesserung mehr siehst.</li>
+      </ul>
+      <p class="option-rate">Erfolgsrate: ~60% (basierend auf Feedback)</p>
+    </div>
+
+    <div class="option-box option-good">
+      <h3>Option 2: Du nutzt auch die Atemkraft Community</h3>
+      <ul class="option-list">
+        <li><span class="option-icon">✓</span> Du stellst deine Frage und bekommst zeitnah eine Antwort.</li>
+        <li><span class="option-icon">✓</span> Du hast die ideale Begleitung, kannst jederzeit nachjustieren und neue Atemreisen ausprobieren.</li>
+        <li><span class="option-icon">✓</span> Du siehst Erfolge, bleibst motiviert. Bald fühlst du dich ruhig, klar und energiegeladen.</li>
+      </ul>
+      <p class="option-rate">Erfolgsrate: ~92% (basierend auf Feedback)</p>
+    </div>
+  </div>
+
+    <!-- EXKLUSIVITÄT -->
+  <div class="exclusivity-section">
+    <h2>Die Community ist bewusst klein gehalten</h2>
+    <p>Aktuell sind <strong>165 Mitglieder</strong> in der Atemkraft Community.</p>
+    <p>Ab <strong>200 Mitgliedern</strong> erhöht sich der Preis.</p>
+    <p>Es gibt also noch <strong>35 Plätze</strong> für den <strong>besten Preis</strong>.</p>
+  </div>
+
+  <!-- PREISBOX + CTA #1 -->
   <div class="price-box">
     <h3>Dein VIP-Upgrade zur Atemkraft Community</h3>
 
@@ -562,10 +943,57 @@ footer a:hover { color: #fff; }
     </div>
 
     <a href="#" class="cta-button">
-      ≫ Ja, ich will dranbleiben!<br>
-      <span style="font-size:14px; font-weight:500; opacity:0.9;">14 Tage kostenlos testen – danach nur 49,95€/Monat</span>
+      JA, ICH TESTE DIE COMMUNITY 14 TAGE KOSTENLOS<br>
+      <span style="font-size:14px; font-weight:500; opacity:0.85;">Danach Mitgliedschaft für nur 49,95€/Monat (statt 99,95€)</span>
     </a>
-    <p class="cta-sub-text">Jederzeit kündbar. Keine versteckten Kosten.</p>
+    <p class="cta-sub-text">Jederzeit kündbar. Keine Mindestlaufzeit.</p>
+
+    <div class="warning-box">
+      <span class="warn-icon">!</span>
+      <div><strong>Wichtig:</strong> Dieses Angebot gilt nur hier und auf dieser Seite. Wenn du diese Seite schließt, bekommst du dieses Angebot nicht mehr – auch nicht auf Anfrage per E-Mail.</div>
+    </div>
+  </div>
+
+  <!-- CHECKPOINTS + REPEAT CTA -->
+  <div class="checkpoint-section">
+    <h2>Klicke auf den Button, um dieses einmalige Sonderangebot zu erhalten:</h2>
+    <ul class="checkpoint-list">
+      <li>✓ Sofortiger Zugang zur Chat-Gruppe</li>
+      <li>✓ Alle Atemreisen &amp; Boni sofort verfügbar</li>
+      <li>✓ Erste Live-Calls und Atemreisen ab dieser Woche</li>
+      <li>✓ 14 Tage komplett kostenlos</li>
+      <li>✓ Jederzeit kündbar</li>
+      <li>✓ Nach 14 Tagen: Nur 49,95€/Monat (statt 99,95€)</li>
+    </ul>
+
+    <div class="notice-box">
+      <strong>WICHTIG:</strong><br>
+      Dieses Angebot gilt NUR hier und NUR jetzt. Wenn du diese Seite schließt, ist das Angebot weg. Du kannst es nicht per E-Mail nachfordern. Der Preis geht zurück auf 99,95€/Monat.
+    </div>
+
+    <a href="#" class="cta-button">
+      JA, ICH TESTE DIE COMMUNITY 14 TAGE KOSTENLOS<br>
+      <span style="font-size:14px; font-weight:500; opacity:0.9;">0€-Testphase starten und Nervensystem dauerhaft stabilisieren</span>
+    </a>
+    <p class="cta-sub-text">Freie Plätze für den besten Preis: 35 von 200.</p>
+  </div>
+
+  <!-- PS-SEKTION -->
+  <div class="ps-section">
+    <p><strong>PS: Was kostet es dich, es nicht zu versuchen?</strong></p>
+    <p>Du hast eine Frage zu deinem Nervensystem, deinem Schlaf, deiner Atmung – aber niemanden, den du fragen kannst.</p>
+    <p>Du googelst zwei Stunden und bist danach verwirrter als vorher.</p>
+    <p><strong>Oder:</strong> Du stellst deine Frage in der Community und bekommst innerhalb von Stunden eine fundierte Antwort von mir oder anderen Mitgliedern. Du setzt sie um. Es funktioniert.</p>
+    <p>Welches Szenario willst du?</p>
+
+    <a href="#" class="cta-button" style="margin-top: 30px;">
+      JA, ICH WILL DIE COMMUNITY – 14 TAGE KOSTENLOS TESTEN<br>
+      <span style="font-size:14px; font-weight:500; opacity:0.9;">0€-Testphase starten und dauerhaft dranbleiben</span>
+    </a>
+
+    <p style="margin-top: 30px;"><strong>PPS:</strong> Wenn du später beitreten willst, kostet die Community 99,95€/Monat. Dieses Neukunden-Angebot bekommst du nur jetzt auf dieser Seite.</p>
+    <p><strong>PPPS:</strong> Die 14-Tage-Testphase ist wirklich kostenlos. Es gibt keine versteckten Kosten. Du entscheidest nach zwei Wochen, ob du weitermachst.</p>
+    <p><strong>PPPPS:</strong> Von den aktuellen Mitgliedern bleiben über 65% nach der Testphase dabei. <strong>Warum?</strong> Weil die Community wirklich funktioniert.</p>
   </div>
 
   <!-- DOWNSELL LINK -->
