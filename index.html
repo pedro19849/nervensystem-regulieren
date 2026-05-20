@@ -418,6 +418,122 @@ p strong { color: var(--charcoal); }
 .testi-job { font-size: 12px; color: var(--teal); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px; }
 .testi-text { font-size: 15.5px; color: var(--text); line-height: 1.65; }
 
+/* ── REAL TESTIMONIALS (Maria, Jens, Denis) ── */
+.real-testi-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-top: 40px;
+}
+.real-testi-grid .real-testi-card.audio-card {
+  grid-column: span 2;
+}
+.real-testi-card {
+  background: #fff;
+  border-radius: 18px;
+  padding: 30px 28px;
+  box-shadow: 0 6px 28px rgba(61,107,142,0.10);
+  border: 1px solid rgba(61,107,142,0.08);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.real-testi-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(61,107,142,0.10);
+}
+.real-testi-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: 0.02em;
+  flex-shrink: 0;
+}
+.real-testi-meta { flex: 1; min-width: 0; }
+.real-testi-name {
+  font-weight: 800;
+  font-size: 16px;
+  color: var(--charcoal);
+  margin-bottom: 2px;
+}
+.real-testi-role {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--teal);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.real-testi-stars { color: #f5a623; font-size: 14px; letter-spacing: 2px; margin-top: 2px; }
+.real-testi-body {
+  font-size: 15.5px;
+  line-height: 1.65;
+  color: var(--text);
+  flex: 1;
+}
+.real-testi-body p { margin: 0 0 12px; }
+.real-testi-body p:last-child { margin-bottom: 0; }
+.real-testi-body strong { color: var(--charcoal); }
+.real-testi-tag {
+  display: inline-block;
+  margin-top: 14px;
+  font-size: 11px;
+  color: var(--text-light);
+  font-style: italic;
+}
+
+/* Audio-Testimonial-Karte */
+.audio-card {
+  background: linear-gradient(135deg, #f8fbfd 0%, #eaf2f8 100%);
+  border: 1px solid rgba(61,107,142,0.18);
+}
+.audio-player-wrap {
+  background: #fff;
+  border-radius: 14px;
+  padding: 18px 20px;
+  margin-top: 14px;
+  box-shadow: inset 0 1px 4px rgba(61,107,142,0.06);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.audio-player-icon {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 22px;
+}
+.audio-player-content { flex: 1; min-width: 0; }
+.audio-player-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--teal-dark);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.audio-player-content audio {
+  width: 100%;
+  height: 40px;
+  display: block;
+}
+
 /* ── PRODUCT SECTION ── */
 .product-intro { text-align: center; margin-bottom: 40px; }
 .product-grid {
@@ -881,6 +997,11 @@ footer p { font-size: 13px; color: rgba(255,255,255,0.7); }
 
   /* Testimonials */
   .testi-top { gap: 10px; }
+  .real-testi-grid { grid-template-columns: 1fr; gap: 22px; }
+  .real-testi-grid .real-testi-card.audio-card { grid-column: span 1; }
+  .real-testi-card { padding: 24px 22px; }
+  .audio-player-wrap { padding: 14px; }
+  .audio-player-icon { width: 40px; height: 40px; font-size: 18px; }
 
   /* FAQ */
   .faq-list { max-width: 100%; }
@@ -1203,29 +1324,75 @@ footer p { font-size: 13px; color: rgba(255,255,255,0.7); }
 </section>
 
 <!-- ═══════════════════════════════════════════════════════ -->
-<!-- 3 TESTIMONIALS (erste Runde) -->
+<!-- ECHTE TESTIMONIALS (Maria, Jens, Denis) -->
 <!-- ═══════════════════════════════════════════════════════ -->
 <section class="section">
   <div class="container">
-    <div class="testi-grid">
-      <div class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <div class="testi-name">Sabine R.</div>
-        <div class="testi-job">Angestellte, 41 Jahre</div>
-        <p class="testi-text">Ich hatte alles über Polyvagal gelesen. Ich verstand die Theorie. Aber mein Körper blieb im Alarm. Mit Peters Übungen ist das erste Mal etwas im Körper passiert – nicht im Kopf. <strong>Nach 10 Tagen war meine Grundanspannung deutlich runter.</strong></p>
+    <h2 style="text-align:center; margin-bottom:8px;">Was Menschen über die Arbeit mit Peter sagen</h2>
+    <p style="text-align:center; color:var(--text-light); max-width:640px; margin:0 auto;">Echte Stimmen aus über 200 Begleitungen – ungekürzt, original.</p>
+
+    <div class="real-testi-grid">
+
+      <!-- MARIA -->
+      <div class="real-testi-card">
+        <div class="real-testi-head">
+          <div class="real-testi-avatar" style="background:linear-gradient(135deg,#c25b7c,#8a3d57);">M</div>
+          <div class="real-testi-meta">
+            <div class="real-testi-name">Maria</div>
+            <div class="real-testi-role">Krankenschwester</div>
+            <div class="real-testi-stars">★★★★★</div>
+          </div>
+        </div>
+        <div class="real-testi-body">
+          <p>"Die Breathwork-Journey bei Peter war magisch! Man kann mit Worten gar nicht richtig beschreiben, was man alles erlebt!</p>
+          <p>Ich wurde während der Reise von <strong>Glücksgefühlen und innerer Stärke überschüttet</strong> und fühlte mich danach wie ein neuer Mensch.</p>
+          <p><strong>Aufgestaute Gefühle konnte ich endlich loslassen!</strong> Ich freue mich auf die nächste Journey mit dir! Danke Peter!"</p>
+        </div>
       </div>
-      <div class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <div class="testi-name">Markus T.</div>
-        <div class="testi-job">Selbstständig, 47 Jahre</div>
-        <p class="testi-text">Mein Nervensystem war seit Jahren überdreht. Therapie hat nicht gereicht. Diese Atemübungen wirken anders – sie regulieren direkt. <strong>Ich kann zum ersten Mal seit Jahren bewusst „runterfahren", wenn ich es will.</strong></p>
+
+      <!-- JENS -->
+      <div class="real-testi-card">
+        <div class="real-testi-head">
+          <div class="real-testi-avatar" style="background:linear-gradient(135deg,#4a7fa8,#2c5270);">J</div>
+          <div class="real-testi-meta">
+            <div class="real-testi-name">Jens</div>
+            <div class="real-testi-role">Unternehmer</div>
+            <div class="real-testi-stars">★★★★★</div>
+          </div>
+        </div>
+        <div class="real-testi-body">
+          <p>"Muss das gerade etwas sacken lassen, selten eine so tiefe inspirierende Erfahrung gehabt. War ein <strong>Wechselbad der Gefühle von Freudentränen zu Anspannung und Gelassenheit</strong>.</p>
+          <p>Es hat mir wirklich sehr gut getan und vor allem konnte sich einiges in meiner Hand mit der OP lösen. Interessanterweise kam das Gefühl der Verzeihung das ich meinem Körper das angetan habe... <strong>die Schmerzen wurden von einem auf den anderen Moment viel weniger</strong>. Das letzte Mal hatte ich das vor 3 Monaten.</p>
+          <p>Gerade zum Ende hin, hatte ich ein <strong>unheimlich klares Bild meiner Aufgabe und meiner Fähigkeit</strong>. Das Warum wurde viel klarer und eindeutiger.</p>
+          <p>An dieser Stelle vielen Dank für diese Erfahrung – du hast das fantastisch gemacht und wirklich eine Begabung."</p>
+        </div>
       </div>
-      <div class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <div class="testi-name">Lisa K.</div>
-        <div class="testi-job">Mutter & Teilzeit-Angestellte, 38 Jahre</div>
-        <p class="testi-text">Ich war so erschöpft von der Reizüberflutung, dass selbst die Stimme meiner Tochter zu viel war. Heute nicht mehr. <strong>Ich bin in stressigen Momenten regulierbar – das ist neu für mich. Und mein größtes Geschenk.</strong></p>
+
+      <!-- DENIS (Audio) -->
+      <div class="real-testi-card audio-card">
+        <div class="real-testi-head">
+          <div class="real-testi-avatar" style="background:linear-gradient(135deg,#5a7a3d,#3a5526);">D</div>
+          <div class="real-testi-meta">
+            <div class="real-testi-name">Denis</div>
+            <div class="real-testi-role">Selbstständig, Musikbranche</div>
+            <div class="real-testi-stars">★★★★★</div>
+          </div>
+        </div>
+        <div class="real-testi-body">
+          <p style="font-style:italic; color:var(--text);">Denis hat sein Feedback als Sprachnachricht geteilt – höre selbst, wie sich sein Nervensystem nach der Arbeit mit Peter anfühlt:</p>
+          <div class="audio-player-wrap">
+            <div class="audio-player-icon">🎙️</div>
+            <div class="audio-player-content">
+              <div class="audio-player-label">Original-Sprachnachricht · 1:01 Min</div>
+              <audio controls preload="metadata">
+                <source src="denis-feedback.mp3" type="audio/mpeg">
+                Dein Browser unterstützt das Audio-Element nicht.
+              </audio>
+            </div>
+          </div>
+        </div>
       </div>
+
     </div>
   </div>
 </section>
