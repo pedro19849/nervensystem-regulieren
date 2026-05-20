@@ -492,6 +492,55 @@ p strong { color: var(--charcoal); }
   font-style: italic;
 }
 
+/* Screenshot-Testimonial */
+.screenshot-testi {
+  background: #fff;
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: 0 6px 28px rgba(61,107,142,0.10);
+  border: 1px solid rgba(61,107,142,0.08);
+  display: flex;
+  flex-direction: column;
+}
+.screenshot-testi .real-testi-head {
+  border-bottom: 1px solid rgba(61,107,142,0.10);
+  margin-bottom: 18px;
+  padding-bottom: 14px;
+}
+.screenshot-img-wrap {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #1a1d1f;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+}
+.screenshot-img-wrap.maria { padding: 0; }
+.screenshot-img-wrap.jens {
+  max-height: 480px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--teal) #1a1d1f;
+}
+.screenshot-img-wrap.jens::-webkit-scrollbar { width: 6px; }
+.screenshot-img-wrap.jens::-webkit-scrollbar-track { background: #1a1d1f; }
+.screenshot-img-wrap.jens::-webkit-scrollbar-thumb { background: var(--teal); border-radius: 3px; }
+.screenshot-img-wrap img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+.screenshot-hint {
+  text-align: center;
+  font-size: 12px;
+  color: var(--text-light);
+  margin-top: 10px;
+  font-style: italic;
+}
+
 /* Audio-Testimonial-Karte */
 .audio-card {
   background: linear-gradient(135deg, #f8fbfd 0%, #eaf2f8 100%);
@@ -1000,6 +1049,8 @@ footer p { font-size: 13px; color: rgba(255,255,255,0.7); }
   .real-testi-grid { grid-template-columns: 1fr; gap: 22px; }
   .real-testi-grid .real-testi-card.audio-card { grid-column: span 1; }
   .real-testi-card { padding: 24px 22px; }
+  .screenshot-testi { padding: 20px; }
+  .screenshot-img-wrap.jens { max-height: 380px; }
   .audio-player-wrap { padding: 14px; }
   .audio-player-icon { width: 40px; height: 40px; font-size: 18px; }
 
@@ -1334,7 +1385,7 @@ footer p { font-size: 13px; color: rgba(255,255,255,0.7); }
     <div class="real-testi-grid">
 
       <!-- MARIA -->
-      <div class="real-testi-card">
+      <div class="screenshot-testi">
         <div class="real-testi-head">
           <div class="real-testi-avatar" style="background:linear-gradient(135deg,#c25b7c,#8a3d57);">M</div>
           <div class="real-testi-meta">
@@ -1343,15 +1394,14 @@ footer p { font-size: 13px; color: rgba(255,255,255,0.7); }
             <div class="real-testi-stars">★★★★★</div>
           </div>
         </div>
-        <div class="real-testi-body">
-          <p>"Die Breathwork-Journey bei Peter war magisch! Man kann mit Worten gar nicht richtig beschreiben, was man alles erlebt!</p>
-          <p>Ich wurde während der Reise von <strong>Glücksgefühlen und innerer Stärke überschüttet</strong> und fühlte mich danach wie ein neuer Mensch.</p>
-          <p><strong>Aufgestaute Gefühle konnte ich endlich loslassen!</strong> Ich freue mich auf die nächste Journey mit dir! Danke Peter!"</p>
+        <div class="screenshot-img-wrap maria">
+          <img src="testimonial-maria.png" alt="WhatsApp-Feedback von Maria">
         </div>
+        <p class="screenshot-hint">Original-WhatsApp-Nachricht · 26.11.2024</p>
       </div>
 
       <!-- JENS -->
-      <div class="real-testi-card">
+      <div class="screenshot-testi">
         <div class="real-testi-head">
           <div class="real-testi-avatar" style="background:linear-gradient(135deg,#4a7fa8,#2c5270);">J</div>
           <div class="real-testi-meta">
@@ -1360,12 +1410,10 @@ footer p { font-size: 13px; color: rgba(255,255,255,0.7); }
             <div class="real-testi-stars">★★★★★</div>
           </div>
         </div>
-        <div class="real-testi-body">
-          <p>"Muss das gerade etwas sacken lassen, selten eine so tiefe inspirierende Erfahrung gehabt. War ein <strong>Wechselbad der Gefühle von Freudentränen zu Anspannung und Gelassenheit</strong>.</p>
-          <p>Es hat mir wirklich sehr gut getan und vor allem konnte sich einiges in meiner Hand mit der OP lösen. Interessanterweise kam das Gefühl der Verzeihung das ich meinem Körper das angetan habe... <strong>die Schmerzen wurden von einem auf den anderen Moment viel weniger</strong>. Das letzte Mal hatte ich das vor 3 Monaten.</p>
-          <p>Gerade zum Ende hin, hatte ich ein <strong>unheimlich klares Bild meiner Aufgabe und meiner Fähigkeit</strong>. Das Warum wurde viel klarer und eindeutiger.</p>
-          <p>An dieser Stelle vielen Dank für diese Erfahrung – du hast das fantastisch gemacht und wirklich eine Begabung."</p>
+        <div class="screenshot-img-wrap jens">
+          <img src="testimonial-jens.png" alt="WhatsApp-Feedback von Jens">
         </div>
+        <p class="screenshot-hint">Original-WhatsApp-Nachricht · 04.12.2024 · zum Scrollen ↕</p>
       </div>
 
       <!-- DENIS (Audio) -->
