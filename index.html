@@ -516,29 +516,92 @@ p strong { color: var(--charcoal); }
   border-radius: 12px;
   overflow: hidden;
   position: relative;
+  cursor: zoom-in;
+  transition: transform 0.2s ease;
 }
-.screenshot-img-wrap.maria { padding: 0; }
-.screenshot-img-wrap.jens {
-  max-height: 480px;
-  overflow-y: auto;
-  scrollbar-width: thin;
-  scrollbar-color: var(--teal) #1a1d1f;
-}
-.screenshot-img-wrap.jens::-webkit-scrollbar { width: 6px; }
-.screenshot-img-wrap.jens::-webkit-scrollbar-track { background: #1a1d1f; }
-.screenshot-img-wrap.jens::-webkit-scrollbar-thumb { background: var(--teal); border-radius: 3px; }
+.screenshot-img-wrap:hover { transform: scale(1.01); }
 .screenshot-img-wrap img {
   width: 100%;
   height: auto;
   display: block;
   border-radius: 8px;
 }
-.screenshot-hint {
-  text-align: center;
-  font-size: 12px;
-  color: var(--text-light);
-  margin-top: 10px;
-  font-style: italic;
+
+/* Lightbox Popup */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.92);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 20px;
+  cursor: zoom-out;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+.lightbox.active {
+  display: flex;
+  opacity: 1;
+}
+.lightbox img {
+  max-width: 100%;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  cursor: default;
+}
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  z-index: 10000;
+  line-height: 1;
+}
+.lightbox-close:hover { background: rgba(255,255,255,0.3); }
+
+/* Jens: gekürzt mit Fade-out + Klick-Hinweis */
+.screenshot-img-wrap.jens-preview {
+  max-height: 480px;
+  overflow: hidden;
+  position: relative;
+}
+.screenshot-img-wrap.jens-preview::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 90px;
+  background: linear-gradient(to bottom, rgba(26,29,31,0) 0%, rgba(26,29,31,0.95) 100%);
+  pointer-events: none;
+}
+.screenshot-img-wrap.jens-preview .read-more-hint {
+  position: absolute;
+  left: 50%;
+  bottom: 16px;
+  transform: translateX(-50%);
+  background: rgba(255,255,255,0.95);
+  color: var(--charcoal);
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+  z-index: 2;
+  pointer-events: none;
 }
 
 /* Audio-Testimonial-Karte */
@@ -1050,9 +1113,10 @@ footer p { font-size: 13px; color: rgba(255,255,255,0.7); }
   .real-testi-grid .real-testi-card.audio-card { grid-column: span 1; }
   .real-testi-card { padding: 24px 22px; }
   .screenshot-testi { padding: 20px; }
-  .screenshot-img-wrap.jens { max-height: 380px; }
+  .screenshot-img-wrap.jens-preview { max-height: 380px; }
   .audio-player-wrap { padding: 14px; }
   .audio-player-icon { width: 40px; height: 40px; font-size: 18px; }
+  .lightbox-close { top: 12px; right: 12px; width: 40px; height: 40px; font-size: 20px; }
 
   /* FAQ */
   .faq-list { max-width: 100%; }
@@ -1394,10 +1458,9 @@ footer p { font-size: 13px; color: rgba(255,255,255,0.7); }
             <div class="real-testi-stars">★★★★★</div>
           </div>
         </div>
-        <div class="screenshot-img-wrap maria">
+        <div class="screenshot-img-wrap" data-lightbox="testimonial-maria.png">
           <img src="testimonial-maria.png" alt="WhatsApp-Feedback von Maria">
         </div>
-        <p class="screenshot-hint">Original-WhatsApp-Nachricht · 26.11.2024</p>
       </div>
 
       <!-- JENS -->
@@ -1410,10 +1473,10 @@ footer p { font-size: 13px; color: rgba(255,255,255,0.7); }
             <div class="real-testi-stars">★★★★★</div>
           </div>
         </div>
-        <div class="screenshot-img-wrap jens">
+        <div class="screenshot-img-wrap jens-preview" data-lightbox="testimonial-jens.png">
           <img src="testimonial-jens.png" alt="WhatsApp-Feedback von Jens">
+          <span class="read-more-hint">🔍 Klicken zum Lesen</span>
         </div>
-        <p class="screenshot-hint">Original-WhatsApp-Nachricht · 04.12.2024 · zum Scrollen ↕</p>
       </div>
 
       <!-- DENIS (Audio) -->
@@ -1934,6 +1997,46 @@ document.querySelectorAll('.faq-q').forEach(q => {
     var mm = String(d.getMonth() + 1).padStart(2, '0');
     var yyyy = d.getFullYear();
     el.textContent = dd + '.' + mm + '.' + yyyy;
+  })();
+</script>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" role="dialog" aria-hidden="true">
+  <button class="lightbox-close" id="lightbox-close" aria-label="Schließen">✕</button>
+  <img id="lightbox-img" src="" alt="">
+</div>
+<script>
+  (function() {
+    var lb = document.getElementById('lightbox');
+    var lbImg = document.getElementById('lightbox-img');
+    var lbClose = document.getElementById('lightbox-close');
+    var triggers = document.querySelectorAll('[data-lightbox]');
+
+    function open(src) {
+      lbImg.src = src;
+      lb.classList.add('active');
+      lb.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+    function close() {
+      lb.classList.remove('active');
+      lb.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      setTimeout(function() { lbImg.src = ''; }, 250);
+    }
+
+    triggers.forEach(function(t) {
+      t.addEventListener('click', function() {
+        open(t.getAttribute('data-lightbox'));
+      });
+    });
+    lbClose.addEventListener('click', close);
+    lb.addEventListener('click', function(e) {
+      if (e.target === lb) close();
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && lb.classList.contains('active')) close();
+    });
   })();
 </script>
 
