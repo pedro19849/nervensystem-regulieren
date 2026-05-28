@@ -418,7 +418,7 @@ p strong { color: var(--charcoal); }
 .testi-job { font-size: 12px; color: var(--teal); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px; }
 .testi-text { font-size: 15.5px; color: var(--text); line-height: 1.65; }
 
-/* ── REAL TESTIMONIALS (Maria, Jens, Denis) ── */
+/* ── REAL TESTIMONIALS (Daniel, Jens, Denis) ── */
 .real-testi-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -573,6 +573,36 @@ p strong { color: var(--charcoal); }
   line-height: 1;
 }
 .lightbox-close:hover { background: rgba(255,255,255,0.3); }
+
+/* Video-Testimonial */
+.video-testi-wrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: #1a1d1f;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.video-testi-wrap video {
+  width: 100%;
+  max-height: 480px;
+  display: block;
+  background: #1a1d1f;
+  border-radius: 12px;
+}
+.video-testi-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--teal);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.video-testi-link:hover { color: var(--teal-dark); text-decoration: underline; }
+.video-testi-link::after { content: "↗"; font-size: 13px; }
 
 /* Jens: gekürzt mit Fade-out + Klick-Hinweis */
 .screenshot-img-wrap.jens-preview {
@@ -1114,6 +1144,7 @@ footer p { font-size: 13px; color: rgba(255,255,255,0.7); }
   .real-testi-card { padding: 24px 22px; }
   .screenshot-testi { padding: 20px; }
   .screenshot-img-wrap.jens-preview { max-height: 380px; }
+  .video-testi-wrap video { max-height: 420px; }
   .audio-player-wrap { padding: 14px; }
   .audio-player-icon { width: 40px; height: 40px; font-size: 18px; }
   .lightbox-close { top: 12px; right: 12px; width: 40px; height: 40px; font-size: 20px; }
@@ -1439,7 +1470,7 @@ footer p { font-size: 13px; color: rgba(255,255,255,0.7); }
 </section>
 
 <!-- ═══════════════════════════════════════════════════════ -->
-<!-- ECHTE TESTIMONIALS (Maria, Jens, Denis) -->
+<!-- ECHTE TESTIMONIALS (Daniel, Jens, Denis) -->
 <!-- ═══════════════════════════════════════════════════════ -->
 <section class="section">
   <div class="container">
@@ -1448,19 +1479,23 @@ footer p { font-size: 13px; color: rgba(255,255,255,0.7); }
 
     <div class="real-testi-grid">
 
-      <!-- MARIA -->
+      <!-- DANIEL (Video) -->
       <div class="screenshot-testi">
         <div class="real-testi-head">
-          <div class="real-testi-avatar" style="background:linear-gradient(135deg,#c25b7c,#8a3d57);">M</div>
+          <div class="real-testi-avatar" style="background:linear-gradient(135deg,#3d6b8e,#2c5270);">D</div>
           <div class="real-testi-meta">
-            <div class="real-testi-name">Maria</div>
-            <div class="real-testi-role">Krankenschwester</div>
+            <div class="real-testi-name">Daniel Plock</div>
+            <div class="real-testi-role">Online-Unternehmer</div>
             <div class="real-testi-stars">★★★★★</div>
           </div>
         </div>
-        <div class="screenshot-img-wrap" data-lightbox="testimonial-maria.png">
-          <img src="testimonial-maria.png" alt="WhatsApp-Feedback von Maria">
+        <div class="video-testi-wrap">
+          <video controls playsinline preload="metadata" poster="daniel-poster.jpg">
+            <source src="daniel-testimonial.mp4" type="video/mp4">
+            Dein Browser unterstützt das Video-Element nicht.
+          </video>
         </div>
+        <a href="https://milemeister.com" target="_blank" rel="noopener" class="video-testi-link">milemeister.com</a>
       </div>
 
       <!-- JENS -->
